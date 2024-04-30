@@ -1,0 +1,15 @@
+-- Create a ScreenGui
+local gui = Instance.new("ScreenGui")
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Create a Frame for the background
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(1, 0, 1, 0) -- Full size
+frame.BorderSizePixel = 0 -- No borders
+frame.BackgroundTransparency = 1 -- Fully transparent initially
+frame.BackgroundColor3 = Color3.new(1, 0, 0) -- Start with red
+frame.Parent = gui
+
+-- Tween the transparency and color of the frame to create the gradient effect
+frame:TweenProperty("BackgroundTransparency", 1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, 1, true)
+frame:TweenProperty("BackgroundColor3", Color3.new(0, 0, 0), Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, 1, true)
