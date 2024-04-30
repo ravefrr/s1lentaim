@@ -1,0 +1,23 @@
+-- Create a ScreenGui
+local gui = Instance.new("ScreenGui")
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Create a Frame for the background
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(1, 0, 1, 0) -- Full size
+frame.BorderSizePixel = 0 -- No borders
+frame.BackgroundColor3 = Color3.new(0, 0, 0) -- Black background
+frame.BackgroundTransparency = 1 -- Fully transparent initially
+frame.Parent = gui
+
+-- Tween the background to a red gradient
+frame:TweenBackground(Color3.new(1, 0, 0), "Linear", "InOut", 1, true)
+
+-- Add a TextLabel for some content
+local textLabel = Instance.new("TextLabel")
+textLabel.Size = UDim2.new(0.5, 0, 0.5, 0)
+textLabel.Position = UDim2.new(0.25, 0, 0.25, 0)
+textLabel.Text = "Hello, Roblox!"
+textLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
+textLabel.BackgroundTransparency = 1 -- Fully transparent background
+textLabel.Parent = frame
