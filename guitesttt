@@ -25,5 +25,10 @@ frame2.BackgroundColor3 = Color3.new(1, 0, 0) -- Red background
 frame2.BackgroundTransparency = 1 -- Fully transparent initially
 frame2.Parent = frame
 
--- Tween the transparency of frame1 to create the gradient effect
+-- Tween the transparencies of frame1 and frame2 to create the gradient effect
 frame1:TweenProperty("BackgroundTransparency", 1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, 1, true)
+frame2:TweenProperty("BackgroundTransparency", 1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, 1, true)
+
+-- Tween the colors of frame1 and frame2 to create the color transition effect
+frame1:TweenProperty("BackgroundColor3", Color3.new(1, 0, 0), Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, 1, true)
+frame2:TweenProperty("BackgroundColor3", Color3.new(0, 0, 0), Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, 1, true)
