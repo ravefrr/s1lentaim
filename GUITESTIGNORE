@@ -1,0 +1,44 @@
+-- Import GTK library
+local lgi = require 'lgi'
+local Gtk = lgi.Gtk
+
+-- Initialize GTK
+Gtk.init()
+
+-- Create a new window
+local window = Gtk.Window {
+    title = "Gradient Frame",
+    default_width = 400,
+    default_height = 300,
+    window_position = Gtk.WindowPosition.CENTER,
+    border_width = 0,  -- Remove border
+}
+
+-- Create a drawing area for custom drawing
+local drawing_area = Gtk.DrawingArea {
+    expand = true,  -- Allow drawing area to expand
+}
+
+-- Add the drawing area to the window
+window:add(drawing_area)
+
+-- Draw on the drawing area
+drawing_area:connect('draw', function(da, cr)
+    -- Create a gradient pattern
+    local pat = cairo.LinearGradient(0, 0, 0, da.allocation.height)
+    pat:add_color_stop_rgb(0, 0, 0, 0)   -- Black
+    pat:add_color_stop_rgb(1, 1, 0, 0)   -- Red
+    
+    -- Set the pattern as the fill style
+    cr:set_source(pat)
+    
+    -- Draw a rectangle covering the drawing area
+    cr:rectangle(0, 0, da.allocation.width, da.allocation.height)
+    cr:fill()
+end)
+
+-- Show all widgets
+window:show_all()
+
+-- Start the GTK main loop
+Gtk.main()
