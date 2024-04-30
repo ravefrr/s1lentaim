@@ -7,11 +7,7 @@ local frame = Instance.new("Frame")
 frame.Size = UDim2.new(1, 0, 1, 0) -- Full size
 frame.BorderSizePixel = 0 -- No borders
 frame.BackgroundColor3 = Color3.new(0, 0, 0) -- Black background
-frame.BackgroundTransparency = 1 -- Fully transparent initially
 frame.Parent = gui
-
--- Tween the background to a red gradient
-frame:TweenBackground(Color3.new(1, 0, 0), "Linear", "InOut", 1, true)
 
 -- Add a TextLabel for some content
 local textLabel = Instance.new("TextLabel")
