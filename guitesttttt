@@ -1,0 +1,58 @@
+local playerGui = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- do not duplicate gui
+if playerGui:FindFirstChild("TWR") then
+    playerGui:FindFirstChild("TWR"):Destroy()
+
+-- screengui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "TWR"
+screenGui.Parent = playerGui
+screenGui.DisplayOrder = 1
+
+-- frame
+local holder = Instance.new("Frame")
+holder.Name = "Holder"
+holder.Parent = screenGui
+holder.Size = UDim2.new(0, 200, 0, 100)
+holder.Position = UDim2.new(0.5, -100, 0.5, -50)
+holder.BackgroundColor3 = Color3.new(1, 1, 1)
+holder.BackgroundTransparency = 1
+holder.Draggable = true
+holder.Active = true
+
+-- textlabel
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Name = "TitleLabel"
+titleLabel.Text = "TWR"
+titleLabel.TextScaled = true
+titleLabel.Parent = holder
+titleLabel.Size = UDim2.new(1, 0, 0,5, 0)
+titleLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+titleLabel.BackgroundTransparency = 1
+
+-- textlabel for status
+local statusLabel = Instance.new("TextLabel")
+statusLabel.Name = "StatusLabel"
+statusLabel.Text = ""
+statusLabel.Parent = holder
+statusLabel.Size = UDim2.new(1, 0, 0.25, 0)
+statusLabel.Position = UDim2.new(0, 0, 0.5, 0)
+statusLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+statusLabel.TextColor3 = Color3.new(0, 0, 0)
+statusLabel.BackgroundTransparency = 1
+statusLabel.TextScaled = true
+
+-- textbtn for status
+local statusButton = Instance.new("TextButton")
+statusButton.Name = "StatusButton"
+statusButton.Text = "Off"
+statusButton.Parent = holder
+statusButton.Size = UDim2.new(1, 0, 0.25, 0) 
+statusButton.Position = UDim2.new(0, 0, 0.75, 0)
+statusButton.BackgroundColor3 = Color3.new(0, 0, 0)
+statusButton.TextColor3 = Color3.new(0, 0, 0)
+statusButton.BackgroundTransparency = 1
+statusButton.TextScaled = true
+
+--
